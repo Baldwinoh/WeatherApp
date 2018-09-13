@@ -1,14 +1,74 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+
+        <button ion-button full>Mahole Baldwin weather App <ion-icon name="cloudy" item-right ></ion-icon>
+        <ion-title></ion-title>
+        
+    </button>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding class="humidity">
+    <div class="city">
+        <ion-list>
+            <ion-item>
+                <strong>Current weather of: </strong> {{city}}
+            </ion-item>
+        </ion-list>
+    </div>
+    <h1>
+        <ion-item>
+            <ion-icon name="calendar" item-left></ion-icon>
+            <strong> Date: </strong> {{date * 1000 | date}}
+        </ion-item>
+    </h1>
+    <div>
+        <ion-item>
+            <ion-label name="city">Current City: </ion-label>
+
+            <ion-select class="option" [(ngModel)]="city" (ionChange)='getWeather($event)'>
+                <ion-option value="Tembisa">Tembisa</ion-option>
+                <ion-option value="Cape Town">Cape Town</ion-option>
+                <ion-option value="Durban">Durban</ion-option>
+                <ion-option value="Port Elizabeth">Port Elizabeth</ion-option>
+                <ion-option value="Pretoria">Pretoria</ion-option>
+                <ion-option value="Soweto">Soweto</ion-option>
+                <ion-option value="Polokwane">Polokwane</ion-option>
+                <ion-option value="Bloemfontein">Bloemfontein</ion-option>
+                <ion-option value="Mbombela">Mbombela</ion-option>
+                <ion-option value="Rustenburg">Johannesburg</ion-option>
+                <ion-option value="Giyani">Giyani</ion-option>
+                <ion-option value="Cosmo City">Cosmo City</ion-option>
+                <ion-option value="Randburg">Randburg</ion-option>
+                <ion-option value="Phalaborwa">Phalaborwa</ion-option>
+                <ion-option value="Thohoyandou">Thohoyandou</ion-option>
+
+            </ion-select>
+        </ion-item>
+    </div>
+    <div>
+        <ion-list class="main">
+            <ion-item>
+                <strong>Main Weather: </strong>{{main}}
+                <ion-icon name="sunny" item-left></ion-icon>
+            </ion-item>
+            <ion-item>
+                <strong>Description: </strong>{{description}}
+                <ion-icon name="desktop" item-left></ion-icon>
+            </ion-item>
+            <ion-item>
+                <strong>Temperature: </strong>{{temp|number:0}}&deg; C
+
+                <ion-icon name="thermometer" item-left></ion-icon>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="aperture" item-left></ion-icon>
+                <strong>Humidity: </strong> {{humidity}} %
+            </ion-item>
+            <ion-item>
+                <ion-icon name="color-wand" item-left></ion-icon>
+                <strong>Wind Speed: </strong>{{wind}} km/h
+            </ion-item>
+        </ion-list>
+    </div>
 </ion-content>
